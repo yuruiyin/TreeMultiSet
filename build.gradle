@@ -11,6 +11,15 @@ repositories {
     mavenCentral()
 }
 
+allprojects {
+    repositories {
+        google()
+        jcenter()
+
+        maven { url "https://www.jitpack.io" }
+    }
+}
+
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }

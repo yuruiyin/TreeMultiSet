@@ -102,8 +102,8 @@ public class TreeMultiSet<E> extends AbstractSet<E>
     }
 
     /**
-     * 返回所有不相同的元素的正向迭代器
-     * @return 所有不相同的元素的正向迭代器
+     * 返回所有不相同的元素的反向迭代器
+     * @return 所有不相同的元素的反向迭代器
      */
     public Iterator<E> diffDescendingIterator() {
         return treeMap.descendingKeySet().iterator();
@@ -127,6 +127,10 @@ public class TreeMultiSet<E> extends AbstractSet<E>
         return new Itr(treeMap.descendingKeySet());
     }
 
+    /**
+     * 返回逆序集合
+     * @return 逆序集合
+     */
     @Override
     public NavigableSet<E> descendingSet() {
         TreeMultiSet<E> descendingSet = new TreeMultiSet<>(treeMap.descendingMap());
@@ -147,6 +151,9 @@ public class TreeMultiSet<E> extends AbstractSet<E>
         return size;
     }
 
+    /**
+     * 返回指定头尾元素的连续子集
+     */
     @Override
     public NavigableSet<E> subSet(E fromElement, boolean fromInclusive, E toElement, boolean toInclusive) {
         NavigableMap<E, Integer> subMap = treeMap.subMap(fromElement, fromInclusive, toElement, toInclusive);
@@ -155,6 +162,9 @@ public class TreeMultiSet<E> extends AbstractSet<E>
         return subSet;
     }
 
+    /**
+     * 返回头部连续子集
+     */
     @Override
     public NavigableSet<E> headSet(E toElement, boolean inclusive) {
         NavigableMap<E, Integer> headMap = treeMap.headMap(toElement, inclusive);
@@ -163,6 +173,9 @@ public class TreeMultiSet<E> extends AbstractSet<E>
         return headSet;
     }
 
+    /**
+     * 返回尾部连续子集
+     */
     @Override
     public NavigableSet<E> tailSet(E fromElement, boolean inclusive) {
         NavigableMap<E, Integer> tailMap = treeMap.tailMap(fromElement, inclusive);
@@ -221,7 +234,7 @@ public class TreeMultiSet<E> extends AbstractSet<E>
     }
 
     /**
-     * 获取最后元素（如果比较器是从小到大的，第一个元素就是最大的，否则就是最小的）
+     * 获取最后一个元素（如果比较器是从小到大的，第一个元素就是最大的，否则就是最小的）
      * @return 最后一个元素
      */
     public E last() {
@@ -284,7 +297,7 @@ public class TreeMultiSet<E> extends AbstractSet<E>
     }
 
     /**
-     * 获取到指定元素的个数
+     * 获取指定元素的个数
      * @param e 指定元素
      * @return 指定元素的个数
      */
@@ -294,19 +307,19 @@ public class TreeMultiSet<E> extends AbstractSet<E>
 
     /**
      * 注意：一定要复写这个方法，目的是覆盖父类Collection的remove操作(复杂度是O(n))
-     * 移除1个指定元素
-     * @param e 要移除的元素
-     * @return 是否移除成功，若移除的元素不存在，返回false, 若移除的元素存在，但是要移除的count大于存在的count，返回false。否则返回true
+     * 删除1个指定元素
+     * @param e 要删除的元素
+     * @return 是否删除成功，若删除的元素不存在，返回false, 若删除的元素存在，但是要删除的count大于存在的count，返回false。否则返回true
      */
     public boolean remove(Object e) {
         return remove((E) e, 1);
     }
 
     /**
-     * 移除count个指定元素，比如集合为[2,3,3,3,2], 若调用removeCount(3,2)，也就是移除2两个2，那么集合就变成[2,3,2]
-     * @param e 要移除的元素
-     * @param count 要移除的指定元素的个数
-     * @return 是否移除成功，若移除的元素不存在，返回false, 若移除的元素存在，但是要移除的count大于存在的count，返回false。否则返回true
+     * 删除count个指定元素，比如集合为[2,3,3,3,2], 若调用removeCount(3,2)，也就是删除2两个2，那么集合就变成[2,3,2]
+     * @param e 要删除的元素
+     * @param count 要删除的指定元素的个数
+     * @return 是否删除成功，若删除的元素不存在，返回false, 若删除的元素存在，但是要删除的count大于存在的count，返回false。否则返回true
      */
     public boolean remove(E e, int count) {
         if (count <= 0) {
@@ -331,9 +344,9 @@ public class TreeMultiSet<E> extends AbstractSet<E>
     }
 
     /**
-     * 移除指定元素（包括所有的指定元素）。比如集合为[2,3,3,3,2]，若调用removeKey(3)，那么会移除所有的3，则集合变成[2,2]
-     * @param e 要移除的元素
-     * @return 是否移除成功，若移除的元素不存在，返回false，否则返回true
+     * 删除指定元素（包括所有的指定元素）。比如集合为[2,3,3,3,2]，若调用removeKey(3)，那么会删除所有的3，则集合变成[2,2]
+     * @param e 要删除的元素
+     * @return 是否删除成功，若删除的元素不存在，返回false，否则返回true
      */
     public boolean removeAll(Object e) {
         if (!treeMap.containsKey(e)) {
@@ -400,7 +413,7 @@ public class TreeMultiSet<E> extends AbstractSet<E>
     }
 
     /**
-     * 移除第一个元素(第一个元素有多个重复，仅删除其中一个)
+     * 删除第一个元素(第一个元素有多个重复，仅删除其中一个)
      * @return 第一个元素
      */
     public E pollFirst() {
@@ -408,7 +421,7 @@ public class TreeMultiSet<E> extends AbstractSet<E>
     }
 
     /**
-     * 移除第一个元素(包括所有数量)
+     * 删除第一个元素(包括所有数量)
      * @return 第一个元素
      */
     public E pollFirstAll() {
@@ -446,7 +459,7 @@ public class TreeMultiSet<E> extends AbstractSet<E>
     }
 
     /**
-     * 移除最后一个元素(包括所有数量)
+     * 删除最后一个元素(包括所有数量)
      * @return 最后一个元素
      */
     public E pollLastAll() {
