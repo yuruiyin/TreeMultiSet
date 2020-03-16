@@ -327,7 +327,7 @@ dependencies {
 ![Coverage](./image/test_coverage.png)
 
 ### 各种集合对比
-说明，以下列举的复杂度均指**时间复杂度**。并且一下插入删除操作均指对中间元素的操作。同时，计算LinkedList的插入和删除时间复杂度的时候考虑了查询到要插入或删除的位置的时间。
+说明，以下列举的复杂度均指**时间复杂度**。并且以下插入删除操作均指对中间元素的操作。同时，计算LinkedList的插入和删除时间复杂度的时候考虑了查询到要插入或删除的位置的时间。
 <table>
     <tdead>
     <tr>
@@ -341,7 +341,7 @@ dependencies {
     </tdead>
     <tbody>
         <tr>
-            <td align="left">ArrasList</td>
+            <td align="left">ArrayList</td>
             <td align="left">是</td>
             <td align="left">否</td>
             <td align="left">O(n)</td>
