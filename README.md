@@ -82,7 +82,7 @@ allprojects {
 Step 2. Add the dependency in your app build.gradle:
 ```groovy
 dependencies {
-	implementation 'com.github.yuruiyin:TreeMultiSet:1.0.0'
+	implementation 'com.github.yuruiyin:TreeMultiSet:1.0.1'
 }
 ```
 
@@ -323,7 +323,7 @@ dependencies {
 ```
 
 ### 单元测试
-已经对TreeMultiSet的所有方法（包括构造函数）都都进行单元测试[TreeMultiSetTest](https://github.com/yuruiyin/TreeMultiSet/blob/master/treemultiset/src/test/java/TreeMultiSetTest.java)，覆盖率100%。
+已经对TreeMultiSet的所有方法（包括构造函数）都进行了单元测试[TreeMultiSetTest](https://github.com/yuruiyin/TreeMultiSet/blob/master/treemultiset/src/test/java/TreeMultiSetTest.java)，测试覆盖率达到100%。
 ![Coverage](./image/test_coverage.png)
 
 ### 各种集合对比
@@ -373,6 +373,14 @@ dependencies {
             <td align="left">O(log n)</td>
         </tr>
         <tr>
+            <td align="left">PriorityQueue</td>
+            <td align="left">是</td>
+            <td align="left">是</td>
+            <td align="left">O(log n)</td>
+            <td align="left">O(n)</td>
+            <td align="left">O(log n)</td>
+        </tr>
+        <tr>
             <td align="left">TreeMultiSet</td>
             <td align="left">是</td>
             <td align="left">是</td>
@@ -382,6 +390,8 @@ dependencies {
         </tr>
     </tbody>
 </table>
+
+由上表可以发现本库实现的TreeMultiSet功能最强大，在保证可重复有序的情况下，持频繁插入删除操作的时间复杂度都可以达到O(log n)的级别。当然，应该具体问题具体分析。比如，没有remove中间某个元素且需要可重复元素有序的情况下，PriorityQueue(底层实现是堆)的性能最佳。
 
 ## 最后
 觉得还不错的话，就点个star支持一下咯~
