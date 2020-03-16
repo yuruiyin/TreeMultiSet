@@ -87,164 +87,45 @@ dependencies {
 ```
 
 ### 功能列表
-<table>
-    <tdead>
-    <tr>
-        <th align="left">功能描述</th>
-        <th align="left">对应方法</th>
-    </tr>
-    </tdead>
-    <tbody>
-        <tr>
-            <td align="left">无参构造函数</td>
-            <td align="left">TreeMultiSet()</td>
-        </tr>
-        <tr>
-            <td align="left">带比较器参数的构造函数</td>
-            <td align="left">TreeMultiSet(Comparator<? super E> comparator)</td>
-        </tr>
-        <tr>
-            <td align="left">带集合参数构造函数</td>
-            <td align="left">TreeMultiSet(Collection<? extends E> c)</td>
-        </tr>
-        <tr>
-            <td align="left">带SortedSet参数构造函数</td>
-            <td align="left">TreeMultiSet(SortedSet<E> s)</td>
-        </tr>
-        <tr>
-            <td align="left">返回所有元素（重复元素要next多次）的正向迭代器</td>
-            <td align="left">Iterator<E> iterator()</td>
-        </tr>
-        <tr>
-            <td align="left">返回所有元素（重复元素要next多次）的反向迭代器</td>
-            <td align="left">Iterator<E> descendingIterator()</td>
-        </tr>
-        <tr>
-            <td align="left">返回所有不相同元素的正向迭代器</td>
-            <td align="left">Iterator<E> diffIterator()</td>
-        </tr>
-        <tr>
-            <td align="left">返回所有不相同元素的反向迭代器</td>
-            <td align="left">Iterator<E> diffDescendingIterator()</td>
-        </tr>
-        <tr>
-            <td align="left">返回逆序Set</td>
-            <td align="left">NavigableSet<E> descendingSet()</td>
-        </tr>
-        <tr>
-            <td align="left">返回指定头尾元素的连续子集</td>
-            <td align="left">NavigableSet<E> subSet(E fromElement, boolean fromInclusive, E toElement, boolean toInclusive)</td>
-        </tr>
-        <tr>
-            <td align="left">返回头部连续子集</td>
-            <td align="left">NavigableSet<E> headSet(E toElement, boolean inclusive)</td>
-        </tr>
-        <tr>
-            <td align="left">返回尾部连续子集</td>
-            <td align="left">NavigableSet<E> tailSet(E fromElement, boolean inclusive)</td>
-        </tr>
-        <tr>
-            <td align="left">返回比较器</td>
-            <td align="left">Comparator<? super E> comparator()</td>
-        </tr>
-        <tr>
-            <td align="left">返回总的元素个数（重复算多个）</td>
-            <td align="left">int size()</td>
-        </tr>
-        <tr>
-            <td align="left">返回不同的元素个数</td>
-            <td align="left">int diffElementSize()</td>
-        </tr>
-        <tr>
-            <td align="left">获取第一个元素</td>
-            <td align="left">E first()</td>
-        </tr>
-        <tr>
-            <td align="left">获取最后一个元素</td>
-            <td align="left">E last()</td>
-        </tr>
-        <tr>
-            <td align="left">判断是否包含某个元素</td>
-            <td align="left">boolean contains(Object o)</td>
-        </tr>
-        <tr>
-            <td align="left">清空所有元素</td>
-            <td align="left">void clear()</td>
-        </tr>
-        <tr>
-            <td align="left">添加指定元素(1个)</td>
-            <td align="left">boolean add(E e)</td>
-        </tr>
-        <tr>
-            <td align="left">添加指定个数的特定元素</td>
-            <td align="left">boolean add(E e, int count)</td>
-        </tr>
-        <tr>
-            <td align="left">设置指定元素的数量</td>
-            <td align="left">void setCount(E e, int count)</td>
-        </tr>
-        <tr>
-            <td align="left">获取指定元素的个数</td>
-            <td align="left">int count(E e)</td>
-        </tr>
-        <tr>
-            <td align="left">删除1个指定元素</td>
-            <td align="left">boolean remove(Object e)</td>
-        </tr>
-        <tr>
-            <td align="left">删除count个指定元素</td>
-            <td align="left">boolean remove(E e, int count)</td>
-        </tr>
-        <tr>
-            <td align="left">删除所有的指定元素（不同于clear()</td>
-            <td align="left">boolean removeAll(Object e)</td>
-        </tr>
-        <tr>
-            <td align="left">返回比给定元素严格小的最大元素</td>
-            <td align="left">E lower(E e)</td>
-        </tr>
-        <tr>
-            <td align="left">返回小于或等于给定元素的最大元素</td>
-            <td align="left">E floor(E e)</td>
-        </tr>
-        <tr>
-            <td align="left">返回比给定元素严格大的最小元素</td>
-            <td align="left">E higher(E e)</td>
-        </tr>
-        <tr>
-            <td align="left">返回大于或等于给定元素的最小元素</td>
-            <td align="left">E ceiling(E e)</td>
-        </tr>
-        <tr>
-            <td align="left">删除指定count的第一个元素</td>
-            <td align="left">E pollFirst()</td>
-        </tr>
-        <tr>
-            <td align="left">删除1个第一个元素</td>
-            <td align="left">E pollFirst()</td>
-        </tr>
-        <tr>
-            <td align="left">删除所有count的第一个元素</td>
-            <td align="left">E pollFirstAll()</td>
-        </tr>
-        <tr>
-            <td align="left">删除1个最后一个元素</td>
-            <td align="left">E pollLast()</td>
-        </tr>
-        <tr>
-            <td align="left">删除指定count的最后一个元素</td>
-            <td align="left">E pollLast(int count)</td>
-        </tr>
-        <tr>
-            <td align="left">删除所有count的最后一个元素</td>
-            <td align="left">E pollLastAll()</td>
-        </tr>
-        <tr>
-            <td align="left">TreeMultiSet浅拷贝</td>
-            <td align="left">Object clone()</td>
-        </tr>
-    </tbody>
-</table>
+功能描述|对应方法
+:---|:---
+无参构造函数 | TreeMultiSet()
+带比较器参数的构造函数 | TreeMultiSet(Comparator<? super E> comparator)
+带集合参数构造函数 | TreeMultiSet(Collection<? extends E> c)
+带SortedSet参数构造函数 | TreeMultiSet(SortedSet<E> s)
+返回所有元素（重复元素要next多次）的正向迭代器 | Iterator<E> iterator()
+返回所有元素（重复元素要next多次）的反向迭代器 | Iterator<E> descendingIterator()
+返回所有不相同元素的正向迭代器 | Iterator<E> diffIterator()
+返回所有不相同元素的反向迭代器 | Iterator<E> diffDescendingIterator()
+返回逆序Set | NavigableSet<E> descendingSet()
+返回指定头尾元素的连续子集 | NavigableSet<E> subSet(E fromElement, boolean fromInclusive, E toElement, boolean toInclusive)
+返回头部连续子集 | NavigableSet<E> headSet(E toElement, boolean inclusive)
+返回尾部连续子集 | NavigableSet<E> tailSet(E fromElement, boolean inclusive)
+返回比较器 | Comparator<? super E> comparator()
+返回总的元素个数（重复算多个） | int size()
+返回不同的元素个数 | int diffElementSize()
+获取第一个元素 | E first()
+获取最后一个元素 | E last()
+判断是否包含某个元素 | boolean contains(Object o)
+清空所有元素 | void clear()
+添加指定元素(1个) | boolean add(E e)
+添加指定个数的特定元素 | boolean add(E e, int count)
+设置指定元素的数量 | void setCount(E e, int count)
+获取指定元素的个数 | int count(E e)
+删除1个指定元素 | boolean remove(Object e)
+删除count个指定元素 | boolean remove(E e, int count)
+删除所有的指定元素(不同于clear()) | boolean removeAll(Object e)
+返回比给定元素严格小的最大元素 | E lower(E e)
+返回小于或等于给定元素的最大元素 | E floor(E e)
+返回比给定元素严格大的最小元素 | E higher(E e)
+返回大于或等于给定元素的最小元素 | E ceiling(E e)
+删除指定count的第一个元素 | E pollFirst()
+删除1个第一个元素 | E pollFirst()
+删除所有count的第一个元素 | E pollFirstAll()
+删除1个最后一个元素 | E pollLast()
+删除指定count的最后一个元素 | E pollLast(int count)
+删除所有count的最后一个元素 | E pollLastAll()
+TreeMultiSet浅拷贝 | Object clone()
 
 ### 代码演示
 这里举几个觉得常用的一些方法的调用方式（当然也可以直接阅读[TreeMultiSet源码](https://github.com/yuruiyin/TreeMultiSet/blob/master/treemultiset/src/main/java/TreeMultiSet.java), 里头有详细的注释)。
@@ -328,68 +209,15 @@ dependencies {
 
 ### 各种集合对比
 说明，以下列举的复杂度均指**时间复杂度**。并且以下插入删除操作均指对中间元素的操作。同时，计算LinkedList的插入和删除时间复杂度的时候考虑了查询到要插入或删除的位置的时间。
-<table>
-    <tdead>
-    <tr>
-        <th align="left">集合</th>
-        <th align="left">是否可重复</th>
-        <th align="left">是否有序</th>
-        <th align="left">插入复杂度</th>
-        <th align="left">删除复杂度</th>
-        <th align="left">获取最大最小复杂度</th>
-    </tr>
-    </tdead>
-    <tbody>
-        <tr>
-            <td align="left">ArrayList</td>
-            <td align="left">是</td>
-            <td align="left">否</td>
-            <td align="left">O(n)</td>
-            <td align="left">O(n)</td>
-            <td align="left">O(n)</td>
-        </tr>
-        <tr>
-            <td align="left">LinkedList</td>
-            <td align="left">是</td>
-            <td align="left">否</td>
-            <td align="left">O(n)</td>
-            <td align="left">O(n)</td>
-            <td align="left">O(n)</td>
-        </tr>
-        <tr>
-            <td align="left">HashSet</td>
-            <td align="left">否</td>
-            <td align="left">否</td>
-            <td align="left">O(1)</td>
-            <td align="left">O(1)</td>
-            <td align="left">O(n)</td>
-        </tr>
-        <tr>
-            <td align="left">TreeSet</td>
-            <td align="left">否</td>
-            <td align="left">是</td>
-            <td align="left">O(log n)</td>
-            <td align="left">O(log n)</td>
-            <td align="left">O(log n)</td>
-        </tr>
-        <tr>
-            <td align="left">PriorityQueue</td>
-            <td align="left">是</td>
-            <td align="left">是</td>
-            <td align="left">O(log n)</td>
-            <td align="left">O(n)</td>
-            <td align="left">O(log n)</td>
-        </tr>
-        <tr>
-            <td align="left">TreeMultiSet</td>
-            <td align="left">是</td>
-            <td align="left">是</td>
-            <td align="left">O(log n)</td>
-            <td align="left">O(log n)</td>
-            <td align="left">O(log n)</td>
-        </tr>
-    </tbody>
-</table>
+
+集合 | 是否可重复 | 是否有序 | 插入复杂度 | 删除复杂度 | 获取最大最小复杂度
+:---|:---|:---|:---|:---|:---
+ArrayList | 是 | 否 | O(n) | O(n) | O(n)
+LinkedList | 是 | 否 | O(n) | O(n) | O(n)
+HashSet | 否 | 否 | O(1) | O(1) | O(n)
+TreeSet | 否 | 是 | O(log n) | O(log n) | O(log n)
+PriorityQueue | 是 | 是 | O(log n) | O(n) | O(log n)
+TreeMultiSet | 是 | 是 | O(log n) | O(log n) | O(log n)
 
 由上表可以发现本库实现的TreeMultiSet功能最强大，在保证可重复有序的情况下，持频繁插入删除操作的时间复杂度都可以达到O(log n)的级别。当然，应该具体问题具体分析。比如，没有remove中间某个元素且需要可重复元素有序的情况下，PriorityQueue(底层实现是堆)的性能最佳。
 
