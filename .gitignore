@@ -9,4 +9,4 @@
 .idea
 *.iml
 out
-gen
+gen.DS_Store

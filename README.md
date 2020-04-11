@@ -119,7 +119,7 @@ dependencies {
 返回小于或等于给定元素的最大元素 | E floor(E e)
 返回比给定元素严格大的最小元素 | E higher(E e)
 返回大于或等于给定元素的最小元素 | E ceiling(E e)
-删除指定count的第一个元素 | E pollFirst()
+删除指定count的第一个元素 | E pollFirst(int count)
 删除1个第一个元素 | E pollFirst()
 删除所有count的第一个元素 | E pollFirstAll()
 删除1个最后一个元素 | E pollLast()
